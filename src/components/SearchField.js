@@ -1,9 +1,13 @@
-import { useContext, useState } from "react"
+import { useContext, useState, useEffect } from "react"
 import { ImageContext } from "../App";
+import axios from 'axios';
+
 
 const SearchField = () => {
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState(null);
   const { fetchData, setSearchImage } = useContext(ImageContext);
+  const [topSearch, settopSearch] = useState([]);
+  console.log("hi",topSearch)
 
   const handleInputChange = (e) => {
     setSearchValue(e.target.value);
@@ -18,6 +22,17 @@ const SearchField = () => {
       setSearchImage(searchValue);
     }
   }
+  useEffect(() => {
+    axios
+      .get('http://localhost:8080/')
+      .then((result) => {
+        settopSearch(result.data);
+      })
+      .catch((err) => {
+        console.error('Error fetching data:', err);
+      });
+  }, []);
+  
 
   return (
     <div className="flex">
@@ -34,6 +49,8 @@ const SearchField = () => {
         disabled={!searchValue}
         className="bg-blue-600 px-6 py-2.5 text-white rounded-tr rounded-br focus:ring-2 focus:ring-blue-300 disabled:bg-gray-400"
       >Search</button>
+      
+      
     </div>
   )
 }
