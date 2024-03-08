@@ -1,17 +1,17 @@
-# Investor Guide Web App - Backend
+# Investor Guide Web App - Frontend
 
-This repository contains the backend code for the Investor Guide web application. The backend handles API requests, interacts with the MongoDB database, and manages keyword tracking for image searches.
+This repository contains the frontend code for the Investor Guide web application. The application provides tools for investors to track expenses, stay updated with top news, and engage in real-time chat with other users.
 
 ## Features
 
-- **API Endpoints:** Provides endpoints for frontend to interact with, including image search and keyword tracking.
+- **Image Search:** Users can search for images related to their investment interests using the Unsplash API. The search results are displayed dynamically based on the user's input.
 
-- **Keyword Tracking:** Stores keyword search data in MongoDB, along with the number of times each keyword has been searched by users.
+- **Keyword Tracking:** Each time a user performs an image search, the keyword used for the search is stored in MongoDB along with the number of times it has been searched by other users. This helps to track popular investment topics.
 
 ## Technologies Used
 
-- **Node.js:** JavaScript runtime environment for running the backend server.
-- **Express.js:** Backend framework for building the RESTful API and handling HTTP requests.
+- **React.js:** Frontend library for building user interfaces.
+- **Unsplash API:** API for searching and retrieving high-quality images.
 - **MongoDB:** NoSQL database for storing keyword search data and search counts.
 
 ## Contributing
